@@ -6,7 +6,7 @@
     reauthorize: yes
 
 - name: Start docker-compose
-  ansible.builtin.command: "docker compose --project-directory {{ app_install_root }}/{{ app_repo_name }} up --detach --build={{ docker_force_build }} --force-recreate --remove-orphans={{ docker_remove_orphans }}"
+  ansible.builtin.command: "docker compose --project-directory {{ app_install_root }}/{{ app_repo_name }} --profile test up --detach --build={{ docker_force_build }} --force-recreate --remove-orphans={{ docker_remove_orphans }}"
   environment:
     REGISTRY_USERNAME: "{{ registry_username }}"
     REGISTRY_PASSWORD: "{{ registry_password }}"
